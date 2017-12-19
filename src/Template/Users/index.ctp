@@ -1,6 +1,3 @@
-<h1>ユーザ一覧</h1>
-<?php echo $this->Html->link('ユーザ登録', 'users/add'); ?>
-<?php foreach ($users as $user): ?>
-    <h1><?php echo $user->name; ?></h1>
-    <?php echo $this->Html->link('編集', ['controller' => 'Users', 'action' => 'edit', $user->id]); ?>
-<?php endforeach; ?>
+<h1><?php echo h($user['name']); ?></h1>
+<a href="<?php echo $this->Url->build(['controller' => 'Users', 'action' => 'edit', $user['id']]); ?>"><button>編集</button></a>
+<button><?php echo $this->Form->postLink('削除', ['controller' => 'Users', 'action' => 'delete', $user['id']]); ?></button>
